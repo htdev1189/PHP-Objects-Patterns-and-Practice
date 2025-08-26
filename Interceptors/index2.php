@@ -12,7 +12,7 @@ echo "sp1 truoc khi clone : " . $sp1->nhaSanXuat->name . "<br>";
 $sp2 = clone $sp1;
 $sp2->nhaSanXuat->name = "Sony";
 echo "sp2 : " . $sp2->nhaSanXuat->name . "<br>";
-echo "sp1 sau khi clone : ". $sp1->nhaSanXuat->name . "<br>";
+echo "sp1 sau khi clone : ". $sp1->nhaSanXuat->name . "<br>"; // nếu khong co __clone trong class SanPham thi name cua nha san xuat se bi thay doi
 /**
  * nếu không có __clone thì nó sp1 sau khi clone sẽ thay đổi theo sp2 đó là Sony
  * property nhaSanXuat của biến sp1 đã bị thay đổi theo sp2
