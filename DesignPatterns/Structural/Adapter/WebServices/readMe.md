@@ -1,0 +1,5 @@
+## Khái niệm về web service
+> Web Services là sự tích hợp giữa hai máy tính, giúp hai máy tính có thể tương tác hiệu quả với nhau qua mạng. Khi đó, web services sẽ cung cấp các chức năng của nó cho máy khách để người dùng đạt được các mục tiêu sử dụng nhất định. Ví dụ, ứng dụng java có thể tương tác với các ứng dụng Java, .Net và PHP. Vì vậy, web services là một cách độc lập về ngôn ngữ giao tiếp
+
+- SOAP Web Service (Simple Object Access Protocol). Nó là một giao thức dựa trên XML để truy cập các web services. Đó là nền tảng độc lập và ngôn ngữ độc lập. Vì dựa trên XML nên SOAP là một giao thức không phụ thuộc platform cũng như bất kì ngôn ngữ lập trình nào. Chúng ta có thể viết bằng Java, PHP, .NET, … và triển khai trên Window, Linux,…
+- RESTful Web Service (REpresentational State Transfer). Là một loại kiến trúc phần mềm (architectural style), không phải là một protocol. RESTful web service nhanh vì không có đặc tả nghiêm ngặt như SOAP. Nó chiếm ít băng thông và tài nguyên hơn. Nếu tính theo số dịch vụ mạng sử dụng, REST đã nổi lên trong vài năm qua như là một mô hình thiết kế dịch vụ chiếm ưu thế.
