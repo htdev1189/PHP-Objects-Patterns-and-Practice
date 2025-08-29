@@ -1,0 +1,15 @@
+{
+    "name": "annm1189/autoload",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "hkt",
+            "email": "htdev1189@gmail.com"
+        }
+    ],
+    "require": {}
+}
