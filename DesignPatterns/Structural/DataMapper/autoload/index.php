@@ -14,23 +14,28 @@ use App\Domain\User;
 $mapper = new UserMapper();
 
 // insert
-// $mapper->insert(new User("admin1", "admin1@gmail.com", 30));
+$mapper->insert(new User("admin1", "admin1@gmail.com", 30));
+$mapper->insert(new User("admin2", "admin1@gmail.com", 20));
+$mapper->insert(new User("admin2", "admin2@gmail.com", 20));
 // $mapper->insert(new User("admin1", "admin1@gmail.com", 25, 0));
 // $mapper->insert(new User("admin2", "admin2@gmail.com"));
 
-$users = $mapper->findByConditions(["status = 'active'", "age > 25"]);
+// $users = $mapper->findByConditions(["status = 'active'", "age > 25"]);
+
 
 // update
-$userData  = $mapper->findByConditions(["id = 14"]);
-if ($userData) {
-    $user->setName("Phong đẹp trai"); // ví dụ cập nhật
-    $mapper->update($user);
-    echo "Cập nhật thành công!";                                                                                                                                                                                                
-}else{
-    echo "Không tìm thấy user.<br>";
-}
+// $userList = $mapper->findByConditions(["id = 14"]);
+// $userData = $userList[0] ?? null;
+// if ($userData) {
+//     $userData->setName("htdev"); // ví dụ cập nhật
+//     $mapper->update($userData);
+//     echo "Cập nhật thành công!";                                                                                                                                                                                                
+// }else{
+//     echo "Không tìm thấy user.<br>";
+// }
 
 
-foreach ($users as $user) {
+$all = $mapper->findByConditions([]);
+foreach ($all as $user) {
     echo $user->getName() . " - " . $user->getEmail() . "<br>";
 }

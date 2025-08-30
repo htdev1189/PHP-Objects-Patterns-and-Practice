@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+declare(strict_types=1); //PHP sẽ không tự động chuyển đổi kiểu.
 namespace App\Database;// cẩn thận chỗ này
 
 class Database {
