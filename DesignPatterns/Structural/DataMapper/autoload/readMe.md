@@ -24,5 +24,9 @@ autoload/
     }
 }
 ```
+> Tạo file autoload.php
+```code
+composer dump-autoload
+```
 
 
