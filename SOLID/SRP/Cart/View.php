@@ -16,3 +16,10 @@
 
 <hr>
 <?php echo $cart ?>
+
+<form method="post">
+    <button type="submit" name="checkout" onclick="return confirm('Bạn có chắc muốn thanh toán giỏ hàng này?')">
+        ✅ Thanh toán
+    </button>
+</form>
+

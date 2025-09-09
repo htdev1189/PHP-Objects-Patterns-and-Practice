@@ -49,6 +49,11 @@ class Cart
         return $total;
     }
 
+    // ✅ Lấy danh sách hóa đơn trong giỏ
+    public function getItems() {
+        return $this->items;
+    }
+
     public function __toString()
     {
         $result = "<h3>🛒 Giỏ hàng</h3>";

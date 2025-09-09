@@ -44,6 +44,18 @@ class CartController
             exit;
         }
 
+        // checkout
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['checkout'])) {
+            $orderId = $this->service->checkout();
+            $_SESSION['cart'] = new Cart();
+
+            // ✅ Lưu orderId vào session để hiển thị
+            $_SESSION['last_order_id'] = $orderId;
+
+            header("Location: checkout_success.php");
+            exit;
+        }
+
         // remove
         if (isset($_GET['remove'])) {
             $this->service->removeProduct((int)$_GET['remove']);

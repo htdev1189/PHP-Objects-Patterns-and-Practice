@@ -6,6 +6,7 @@ namespace Solid\SRP;
 
 require_once __DIR__ . "/Cart.php";
 require_once __DIR__ . "/ProductRepository.php";
+require_once __DIR__ . "/OrderRepository.php";
 
 class CartService
 {
@@ -46,5 +47,12 @@ class CartService
         if ($product && $newQuantity > 0) {
             $this->cart->addProduct($product, $newQuantity);
         }
+    }
+
+    // checkout
+    public function checkout(): int
+    {
+        $orderRepo = new OrderRepository();
+        return $orderRepo->saveOrder($this->cart);
     }
 }
