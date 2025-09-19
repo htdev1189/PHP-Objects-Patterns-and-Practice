@@ -1,0 +1,9 @@
+{
+    "name":"ocp/payment",
+    "autoload": {
+        "psr-4": {
+            "App\\":"./"
+        }
+    },
+    "require": {}
+}
