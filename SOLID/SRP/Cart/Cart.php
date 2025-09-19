@@ -33,7 +33,7 @@ class Cart
 
     public function updateProduct(Product $product, int $newQuantity)
     {
-        if (!isset($this->items[$product->getId()])) {
+        if (isset($this->items[$product->getId()])) {
             $this->items[$product->getId()] = new Invoice($product, $newQuantity);
         }
     }

@@ -24,16 +24,14 @@ class OrderRepository {
             $stmt->execute();
             $orderId = $stmt->insert_id;
 
-            $itemStmt = $this->connection->prepare("INSERT INTO order_items (order_id, product_name, color, quantity, price) VALUES (?, ?, ?, ?, ?)");
-            foreach ($cart->getItems() as $item) {
+            $itemStmt = $this->connection->prepare("INSERT INTO order_items (order_id, product_id, quantity) VALUES (?, ?, ?)");
+            foreach ($cart->getItems() as $key => $item) {
                 $product = $item->getProduct();
                 $itemStmt->bind_param(
-                    "issii",
+                    "iii",
                     $orderId,
-                    $product->getName(),
-                    $product->getColor(),
-                    $item->getQuantity(),
-                    $product->getPrice()
+                    $key,
+                    $item->getQuantity()
                 );
                 $itemStmt->execute();
             }

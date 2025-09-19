@@ -45,7 +45,7 @@ class CartService
     {
         $product = $this->productRepository->findById($id);
         if ($product && $newQuantity > 0) {
-            $this->cart->addProduct($product, $newQuantity);
+            $this->cart->updateProduct($product, $newQuantity);
         }
     }
 
