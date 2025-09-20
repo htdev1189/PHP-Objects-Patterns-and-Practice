@@ -33,3 +33,52 @@ $orderManager = new OrderManager();
 $orderManager->saveOrder("Đơn hàng #123");
 
 ```
+- Vấn đề
+    - `OrderManager` phụ thuộc chặt chẽ vào `MySQLDatabase`
+    - Giả sử muốn lưu data theo dạng Postgre thì phải ửa code trong `OrderManager`
+
+### Áp dụng DIP
+```php
+<?php
+
+interface DatabaseInterface {
+    public function save($data);
+}
+
+class MySQLDatabase implements DatabaseInterface {
+    public function save($data) {
+        echo "Lưu vào MySQL: $data<br>";
+    }
+}
+
+class FileDatabase implements DatabaseInterface {
+    public function save($data) {
+        echo "Lưu vào File: $data<br>";
+    }
+}
+
+class OrderManager {
+    private $db;
+
+    // Tiêm phụ thuộc qua constructor (Dependency Injection)
+    public function __construct(DatabaseInterface $db) {
+        $this->db = $db;
+    }
+
+    public function saveOrder($order) {
+        $this->db->save($order);
+    }
+}
+
+// Test
+$orderManager = new OrderManager(new MySQLDatabase());
+$orderManager->saveOrder("Đơn hàng #123");
+
+// Đổi sang File mà không sửa OrderManager
+$orderManagerFile = new OrderManager(new FileDatabase());
+$orderManagerFile->saveOrder("Đơn hàng #124");
+
+```
+- Uu điểm
+    - `OrderManager` chỉ phụ thuộc vào abstraction `DatabaseInterface`, không quan tâm nó là MySQL, File hay API.
+    - Dễ mở rộng (chỉ cần tạo class mới implement `DatabaseInterface`).
